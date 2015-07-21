@@ -17,6 +17,7 @@ $(function(){
       return !nonePass;
 
     }
+    // Thanks jpillora! https://gist.github.com/jpillora/4435759
     function combinations(set) {
       return (function acc(xs, set) {
         var x = xs[0];
