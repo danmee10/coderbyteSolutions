@@ -8,7 +8,20 @@ $(function(){
 
 
     function MeanMode(arr) {
-      var mean = arr.reduce(function(a, b){ return +a + +b; }) / arr.length
+      var mean = arr.reduce(function(a, b){ return +a + +b; }) / arr.length;
+      var mode = calcMode(arr);
+
+
+      if (mean == mode) {
+        var response = 1;
+      } else {
+        var response = 0;
+      }
+
+      return response;
+    }
+
+    function calcMode(arr){
       var countMap = arr.reduce(function(o, c){
         if (typeof o[c] == "undefined"){
           o[c] = 1;
@@ -20,20 +33,14 @@ $(function(){
 
       var max = 0;
       var mode = null;
+
       Object.keys(countMap).forEach(function(k){
         if (countMap[k] > max) {
           max = countMap[k];
           mode = k;
         }
       });
-
-      if (mean == mode) {
-        var response = 1;
-      } else {
-        var response = 0;
-      }
-
-      return response;
+      return mode;
     }
 
 
